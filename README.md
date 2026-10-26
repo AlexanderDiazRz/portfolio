@@ -6,7 +6,7 @@ Portafolio profesional de **Alexander Díaz Ramírez**, desarrollador de softwar
 
 ## Sobre el proyecto
 
-Sitio desarrollado con ASP.NET Core MVC para presentar proyectos, experiencia, habilidades, formación y medios de contacto. El diseño utiliza una dirección editorial oscura con acentos rojos, composición responsiva y recursos visuales propios para cada proyecto.
+Sitio desarrollado con ASP.NET Core MVC para presentar proyectos, experiencia, habilidades, formación y medios de contacto. El diseño utiliza una dirección editorial oscura con acentos rojos, composición responsiva, contenido completo en español e inglés y recursos visuales propios para cada proyecto.
 
 El contenido distingue de forma clara los repositorios públicos, los trabajos privados y los proyectos desarrollados en equipo. No contiene credenciales, datos de clientes ni información operativa privada.
 

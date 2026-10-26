@@ -2,6 +2,7 @@ namespace PortfolioAlexander.Models;
 
 public sealed class PortfolioViewModel
 {
+    public string Language { get; init; } = "es";
     public IReadOnlyList<ProjectItem> Projects { get; init; } = [];
 }
 

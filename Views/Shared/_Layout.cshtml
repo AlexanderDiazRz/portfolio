@@ -1,34 +1,44 @@
 @{
-    var socialImageUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{Url.Content("~/images/social/portfolio-social.png")}";
+    var siteBaseUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+    var socialImageUrl = $"{siteBaseUrl}{Url.Content("~/images/social/portfolio-social.png")}";
+    var language = string.Equals(ViewData["Language"] as string, "en", StringComparison.OrdinalIgnoreCase) ? "en" : "es";
+    var isEnglish = language == "en";
+    var metaDescription = isEnglish
+        ? "Portfolio of Alexander Díaz Ramírez, a junior software developer in Santo Domingo. Projects built with C#, ASP.NET Core MVC, .NET MAUI, and SQL Server."
+        : "Portafolio de Alexander Díaz Ramírez, desarrollador de software junior en Santo Domingo. Proyectos con C#, ASP.NET Core MVC, .NET MAUI y SQL Server.";
 }
 <!DOCTYPE html>
-<html lang="es">
+<html lang="@language">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portafolio de Alexander Díaz Ramírez, desarrollador de software junior en Santo Domingo. Proyectos con C#, ASP.NET Core MVC, .NET MAUI y SQL Server." />
+    <meta name="description" content="@metaDescription" />
     <meta name="author" content="Alexander Díaz Ramírez" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#101112" />
     <meta name="color-scheme" content="dark" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_DO" />
+    <meta property="og:locale" content="@(isEnglish ? "en_US" : "es_DO")" />
     <meta property="og:site_name" content="Alexander Díaz Ramírez" />
-    <meta property="og:title" content="Alexander Díaz Ramírez · Desarrollador .NET" />
-    <meta property="og:description" content="Proyectos reales de desarrollo web, móvil e integración de IA con C# y .NET." />
+    <meta property="og:title" content="Alexander Díaz Ramírez · @(isEnglish ? ".NET Developer" : "Desarrollador .NET")" />
+    <meta property="og:description" content="@(isEnglish ? "Real-world web, mobile, and AI integration projects built with C# and .NET." : "Proyectos reales de desarrollo web, móvil e integración de IA con C# y .NET.")" />
     <meta property="og:image" content="@socialImageUrl" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Alexander Díaz Ramírez, desarrollador de software junior" />
+    <meta property="og:image:alt" content="Alexander Díaz Ramírez, @(isEnglish ? "junior software developer" : "desarrollador de software junior")" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Alexander Díaz Ramírez · Desarrollador .NET" />
-    <meta name="twitter:description" content="Portafolio profesional de desarrollo web, móvil e integración de IA." />
+    <meta name="twitter:title" content="Alexander Díaz Ramírez · @(isEnglish ? ".NET Developer" : "Desarrollador .NET")" />
+    <meta name="twitter:description" content="@(isEnglish ? "Professional portfolio featuring web, mobile, and AI integration work." : "Portafolio profesional de desarrollo web, móvil e integración de IA.")" />
     <meta name="twitter:image" content="@socialImageUrl" />
 
     <title>@ViewData["Title"] · Alexander Díaz Ramírez</title>
     <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
+    <link rel="canonical" href="@siteBaseUrl/?lang=@language" />
+    <link rel="alternate" hreflang="es" href="@siteBaseUrl/?lang=es" />
+    <link rel="alternate" hreflang="en" href="@siteBaseUrl/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="@siteBaseUrl/?lang=es" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
     <script type="application/ld+json">
@@ -36,7 +46,7 @@
             "@@context": "https://schema.org",
             "@@type": "Person",
             "name": "Alexander Díaz Ramírez",
-            "jobTitle": "Desarrollador de software junior",
+            "jobTitle": "@(isEnglish ? "Junior software developer" : "Desarrollador de software junior")",
             "email": "mailto:alexanderadr1298@gmail.com",
             "telephone": "+18092717150",
             "address": {
@@ -52,32 +62,40 @@
                 "ASP.NET Core MVC",
                 ".NET MAUI",
                 "SQL Server",
-                "Integración de LLMs con Ollama"
+                "@(isEnglish ? "LLM integration with Ollama" : "Integración de LLMs con Ollama")"
             ]
         }
     </script>
 </head>
 <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <a class="skip-link" href="#contenido">@(isEnglish ? "Skip to content" : "Saltar al contenido")</a>
 
     <header class="site-header" data-header>
-        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <a class="brand" href="#inicio" aria-label="@(isEnglish ? "Go to the top" : "Ir al inicio")">
             <span class="brand-mark" aria-hidden="true">AD</span>
             <span class="brand-name">Alexander Díaz</span>
         </a>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
-            <span></span><span></span>
-            <span class="sr-only">Abrir menú</span>
-        </button>
+        <div class="header-controls">
+            <nav class="site-nav" id="main-navigation" aria-label="@(isEnglish ? "Main navigation" : "Navegación principal")" data-nav>
+                <a href="#proyectos">@(isEnglish ? "Projects" : "Proyectos")</a>
+                <a href="#experiencia">@(isEnglish ? "Experience" : "Experiencia")</a>
+                <a href="#habilidades">@(isEnglish ? "Skills" : "Habilidades")</a>
+                <a href="#formacion">@(isEnglish ? "Education" : "Formación")</a>
+                <a href="#contacto">@(isEnglish ? "Contact" : "Contacto")</a>
+            </nav>
 
-        <nav class="site-nav" id="main-navigation" aria-label="Navegación principal" data-nav>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#formacion">Formación</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
+            <div class="language-switch" role="group" aria-label="@(isEnglish ? "Choose language" : "Elegir idioma")">
+                <button type="button" data-language-option="es" aria-pressed="@(!isEnglish ? "true" : "false")">ES</button>
+                <span aria-hidden="true">/</span>
+                <button type="button" data-language-option="en" aria-pressed="@(isEnglish ? "true" : "false")">EN</button>
+            </div>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
+                <span></span><span></span>
+                <span class="sr-only">@(isEnglish ? "Open menu" : "Abrir menú")</span>
+            </button>
+        </div>
     </header>
 
     <main id="contenido">
@@ -85,7 +103,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>Diseñado y desarrollado con ASP.NET Core.</p>
+        <p>@(isEnglish ? "Designed and developed with ASP.NET Core." : "Diseñado y desarrollado con ASP.NET Core.")</p>
         <p>© <span data-year></span> Alexander Díaz Ramírez</p>
     </footer>
 

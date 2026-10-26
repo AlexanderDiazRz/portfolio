@@ -110,6 +110,12 @@ a {
     text-transform: uppercase;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
 .site-nav {
     display: flex;
     gap: 30px;
@@ -123,6 +129,37 @@ a {
     letter-spacing: 0.08em;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+.language-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.language-switch button {
+    padding: 2px;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    letter-spacing: inherit;
+}
+
+.language-switch button[aria-pressed="true"] {
+    color: var(--red-bright);
+}
+
+.language-switch button:hover,
+.language-switch button:focus-visible {
+    color: var(--paper);
 }
 
 .site-nav a::after {
@@ -870,6 +907,10 @@ a {
         background: none;
     }
 
+    .header-controls {
+        gap: 16px;
+    }
+
     .nav-toggle span:not(.sr-only) {
         display: block;
         width: 24px;
@@ -997,6 +1038,10 @@ a {
         display: none;
     }
 
+    .language-switch {
+        padding: 5px 7px;
+    }
+
     .hero h1 {
         font-size: clamp(3.35rem, 17vw, 5.3rem);
         line-height: 0.88;
@@ -1050,8 +1095,32 @@ a {
         gap: 12px;
     }
 
+    .skills-section {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .skills-section .section-heading {
+        gap: 26px;
+        margin-bottom: 38px;
+    }
+
     .skills-map {
         grid-template-columns: 1fr;
+        gap: 16px;
+        border-top: 0;
+        border-left: 0;
+    }
+
+    .skill-block {
+        min-height: 210px;
+        padding: 28px 24px;
+        border: 1px solid rgba(16, 17, 18, 0.2);
+    }
+
+    .skill-block h3 {
+        margin-top: 32px;
+        font-size: 1.85rem;
     }
 
     .course-card {

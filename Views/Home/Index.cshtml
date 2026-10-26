@@ -1,55 +1,58 @@
 @model PortfolioViewModel
 @{
-    ViewData["Title"] = "Desarrollador .NET";
+    var isEnglish = Model.Language == "en";
+    string T(string spanish, string english) => isEnglish ? english : spanish;
+    ViewData["Language"] = Model.Language;
+    ViewData["Title"] = T("Desarrollador .NET", ".NET Developer");
 }
 
 <section class="hero" id="inicio">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-kicker reveal">
         <span class="signal-dot"></span>
-        Santo Domingo, República Dominicana
+        @T("Santo Domingo, República Dominicana", "Santo Domingo, Dominican Republic")
     </div>
     <div class="hero-copy reveal">
-        <p class="hero-index">BIENVENIDO A MI MUNDO</p>
+        <p class="hero-index">@T("BIENVENIDO A MI MUNDO", "WELCOME TO MY WORLD")</p>
         <h1>
-            Desarrollo software<br />
-            <span>con intención.</span>
+            @T("Desarrollo software", "I build software")<br />
+            <span>@T("con intención.", "with purpose.")</span>
         </h1>
         <p class="hero-lead">
-            Soy <strong>Alexander Díaz Ramírez</strong>, desarrollador de software junior y estudiante de término de Ingeniería en Software. Construyo aplicaciones con C#, .NET y SQL Server.
+            @T("Soy", "I'm") <strong>Alexander Díaz Ramírez</strong>, @T("desarrollador de software junior y estudiante de término de Ingeniería en Software. Construyo aplicaciones con C#, .NET y SQL Server.", "a junior software developer and final-year Software Engineering student. I build applications with C#, .NET, and SQL Server.")
         </p>
         <div class="hero-actions">
-            <a class="button button-primary" href="#proyectos">Explorar proyectos <span aria-hidden="true">↘</span></a>
-            <a class="button button-quiet" href="mailto:alexanderadr1298@gmail.com">Hablemos</a>
+            <a class="button button-primary" href="#proyectos">@T("Explorar proyectos", "Explore projects") <span aria-hidden="true">↘</span></a>
+            <a class="button button-quiet" href="mailto:alexanderadr1298@gmail.com">@T("Hablemos", "Let's talk")</a>
         </div>
     </div>
-    <div class="hero-stamp reveal" aria-label="Monograma de Alexander Díaz">
+    <div class="hero-stamp reveal" aria-label="@T("Monograma de Alexander Díaz", "Alexander Díaz monogram")">
         <span>AD</span>
         <small>SOFTWARE<br />DEVELOPER</small>
     </div>
     <div class="hero-foot reveal">
-        <span>Disponible para oportunidades junior .NET</span>
-        <span class="hero-scroll">Desliza para conocer mi trabajo ↓</span>
+        <span>@T("Disponible para oportunidades junior .NET", "Open to junior .NET opportunities")</span>
+        <span class="hero-scroll">@T("Desliza para conocer mi trabajo", "Scroll to explore my work") ↓</span>
     </div>
 </section>
 
-<section class="now-strip reveal" aria-label="Trabajo actual">
+<section class="now-strip reveal" aria-label="@T("Trabajo actual", "Current role")">
     <div class="section-number">00</div>
     <div>
-        <p class="eyebrow">Actualmente</p>
-        <h2>Construyendo GoGo Delivery RD</h2>
+        <p class="eyebrow">@T("Actualmente", "Currently")</p>
+        <h2>@T("Construyendo GoGo Delivery RD", "Building GoGo Delivery RD")</h2>
     </div>
-    <p>Trabajo junto a un equipo en una aplicación Flutter para comercios del ecosistema de pedidos de GOGO DELIVERY RD, bajo contrato por proyecto y de forma remota.</p>
-    <span class="status-pill"><span></span> En desarrollo</span>
+    <p>@T("Trabajo junto a un equipo en una aplicación Flutter para comercios del ecosistema de pedidos de GOGO DELIVERY RD, bajo contrato por proyecto y de forma remota.", "I work remotely with a team on a Flutter application for merchants in the GOGO DELIVERY RD ordering ecosystem, under a project-based contract.")</p>
+    <span class="status-pill"><span></span> @T("En desarrollo", "In development")</span>
 </section>
 
 <section class="section projects-section" id="proyectos">
     <header class="section-heading reveal">
         <div>
-            <p class="eyebrow">Trabajo seleccionado</p>
-            <h2>Proyectos que cuentan mi proceso.</h2>
+            <p class="eyebrow">@T("Trabajo seleccionado", "Selected work")</p>
+            <h2>@T("Proyectos que cuentan mi proceso.", "Projects that tell my story.")</h2>
         </div>
-        <p>No son tarjetas de relleno: cada proyecto muestra una etapa distinta de mi crecimiento como desarrollador.</p>
+        <p>@T("No son tarjetas de relleno: cada proyecto muestra una etapa distinta de mi crecimiento como desarrollador.", "These are not filler cards: each project represents a different stage of my growth as a developer.")</p>
     </header>
 
     <div class="project-list">
@@ -63,7 +66,7 @@
                     <p class="project-description">@project.Description</p>
                     @if (project.Technologies.Count > 0)
                     {
-                        <ul class="tag-list" aria-label="Tecnologías utilizadas">
+                        <ul class="tag-list" aria-label="@T("Tecnologías utilizadas", "Technologies used")">
                             @foreach (var technology in project.Technologies)
                             {
                                 <li>@technology</li>
@@ -77,7 +80,7 @@
                                 <img src="@project.ImageUrl" alt="@project.ImageAlt" loading="lazy" />
                             </div>
                             <figcaption>
-                                <span>@(project.ImageHeading ?? "Vista del producto")</span>
+                                <span>@(project.ImageHeading ?? T("Vista del producto", "Product view"))</span>
                                 @project.ImageCaption
                             </figcaption>
                         </figure>
@@ -102,42 +105,42 @@
 <section class="section split-section" id="experiencia">
     <header class="section-heading reveal">
         <div>
-            <p class="eyebrow">Trayectoria</p>
-            <h2>Experiencia construida haciendo.</h2>
+            <p class="eyebrow">@T("Trayectoria", "Career")</p>
+            <h2>@T("Experiencia construida haciendo.", "Experience built by doing.")</h2>
         </div>
     </header>
 
     <div class="timeline">
         <article class="timeline-item reveal">
-            <div class="timeline-date">Actual</div>
+            <div class="timeline-date">@T("Actual", "Current")</div>
             <div>
-                <p class="eyebrow">Remoto · Contrato por proyecto</p>
-                <h3>Desarrollador Junior · GoGo Delivery RD</h3>
-                <p>Desarrollo en equipo de una aplicación Flutter para comercios, con integración a la API central y flujos móviles de acceso y verificación.</p>
+                <p class="eyebrow">@T("Remoto · Contrato por proyecto", "Remote · Project-based contract")</p>
+                <h3>@T("Desarrollador Junior", "Junior Developer") · GoGo Delivery RD</h3>
+                <p>@T("Desarrollo en equipo de una aplicación Flutter para comercios, con integración a la API central y flujos móviles de acceso y verificación.", "Team development of a Flutter application for merchants, with central API integration and mobile access and verification flows.")</p>
             </div>
         </article>
         <article class="timeline-item reveal">
-            <div class="timeline-date">6–12 meses</div>
+            <div class="timeline-date">@T("6–12 meses", "6–12 months")</div>
             <div>
-                <p class="eyebrow">Remoto · Independiente</p>
-                <h3>Desarrollador Freelance</h3>
-                <p>Sistemas web a la medida con ASP.NET Core MVC, arquitectura por capas, CRUD y bases de datos SQL Server. Participación desde el levantamiento de requerimientos hasta la entrega.</p>
+                <p class="eyebrow">@T("Remoto · Independiente", "Remote · Independent")</p>
+                <h3>@T("Desarrollador Freelance", "Freelance Developer")</h3>
+                <p>@T("Sistemas web a la medida con ASP.NET Core MVC, arquitectura por capas, CRUD y bases de datos SQL Server. Participación desde el levantamiento de requerimientos hasta la entrega.", "Custom web systems built with ASP.NET Core MVC, layered architecture, CRUD operations, and SQL Server databases. Involved from requirements gathering through delivery.")</p>
             </div>
         </article>
         <article class="timeline-item reveal">
             <div class="timeline-date">UFHEC</div>
             <div>
-                <p class="eyebrow">Pasantía</p>
-                <h3>Biblioteca Universitaria</h3>
-                <p>Gestión documental, clasificación de recursos y atención al usuario.</p>
+                <p class="eyebrow">@T("Pasantía", "Internship")</p>
+                <h3>@T("Biblioteca Universitaria", "University Library")</h3>
+                <p>@T("Gestión documental, clasificación de recursos y atención al usuario.", "Document management, resource classification, and user support.")</p>
             </div>
         </article>
         <article class="timeline-item reveal">
-            <div class="timeline-date">Eventos</div>
+            <div class="timeline-date">@T("Eventos", "Events")</div>
             <div>
-                <p class="eyebrow">Colaboración</p>
-                <h3>Animación y logística</h3>
-                <p>Apoyo en la organización y desarrollo de eventos sociales.</p>
+                <p class="eyebrow">@T("Colaboración", "Collaboration")</p>
+                <h3>@T("Animación y logística", "Entertainment and logistics")</h3>
+                <p>@T("Apoyo en la organización y desarrollo de eventos sociales.", "Support in organizing and running social events.")</p>
             </div>
         </article>
     </div>
@@ -146,42 +149,42 @@
 <section class="section skills-section" id="habilidades">
     <header class="section-heading reveal">
         <div>
-            <p class="eyebrow">Herramientas</p>
-            <h2>Mi stack, sin exageraciones.</h2>
+            <p class="eyebrow">@T("Herramientas", "Tools")</p>
+            <h2>@T("Mi stack, sin exageraciones.", "My stack, no exaggerations.")</h2>
         </div>
-        <p>Backend .NET como base, acompañado por desarrollo móvil, bases de datos e integración de IA local.</p>
+        <p>@T("Backend .NET como base, acompañado por desarrollo móvil, bases de datos e integración de IA local.", ".NET backend as my foundation, complemented by mobile development, databases, and local AI integration.")</p>
     </header>
 
     <div class="skills-map">
         <article class="skill-block skill-core reveal">
             <span class="skill-code">CORE / 01</span>
             <h3>Backend</h3>
-            <p>C#, ASP.NET Core MVC, diseño y consumo de APIs, Windows Forms</p>
+            <p>@T("C#, ASP.NET Core MVC, diseño y consumo de APIs, Windows Forms", "C#, ASP.NET Core MVC, API design and consumption, Windows Forms")</p>
         </article>
         <article class="skill-block reveal">
             <span class="skill-code">DATA / 02</span>
-            <h3>Datos</h3>
-            <p>SQL Server, Entity Framework, Code First y migraciones</p>
+            <h3>@T("Datos", "Data")</h3>
+            <p>@T("SQL Server, Entity Framework, Code First y migraciones", "SQL Server, Entity Framework, Code First, and migrations")</p>
         </article>
         <article class="skill-block reveal">
             <span class="skill-code">MOBILE / 03</span>
-            <h3>Móvil</h3>
-            <p>.NET MAUI, MVVM y Shell navigation · Flutter básico aplicado en un proyecto de equipo</p>
+            <h3>@T("Móvil", "Mobile")</h3>
+            <p>@T(".NET MAUI, MVVM y Shell navigation · Flutter básico aplicado en un proyecto de equipo", ".NET MAUI, MVVM, and Shell navigation · Basic Flutter applied in a team project")</p>
         </article>
         <article class="skill-block reveal">
             <span class="skill-code">AI / 04</span>
-            <h3>IA aplicada</h3>
-            <p>Integración de LLMs con Ollama y prompt engineering</p>
+            <h3>@T("IA aplicada", "Applied AI")</h3>
+            <p>@T("Integración de LLMs con Ollama y prompt engineering", "LLM integration with Ollama and prompt engineering")</p>
         </article>
         <article class="skill-block reveal">
             <span class="skill-code">WEB / 05</span>
             <h3>Frontend</h3>
-            <p>HTML, CSS y JavaScript · nociones prácticas</p>
+            <p>@T("HTML, CSS y JavaScript · nociones prácticas", "HTML, CSS, and JavaScript · practical fundamentals")</p>
         </article>
         <article class="skill-block reveal">
             <span class="skill-code">OPS / 06</span>
-            <h3>Herramientas</h3>
-            <p>Git, GitHub, Bash, pruebas con xUnit y Docker básico</p>
+            <h3>@T("Herramientas", "Tools")</h3>
+            <p>@T("Git, GitHub, Bash, pruebas con xUnit y Docker básico", "Git, GitHub, Bash, xUnit testing, and basic Docker")</p>
         </article>
     </div>
 </section>
@@ -189,47 +192,47 @@
 <section class="section learning-section" id="formacion">
     <header class="section-heading reveal">
         <div>
-            <p class="eyebrow">Formación continua</p>
-            <h2>Lo que aprendo, lo pongo a trabajar.</h2>
+            <p class="eyebrow">@T("Formación continua", "Continuous learning")</p>
+            <h2>@T("Lo que aprendo, lo pongo a trabajar.", "I put what I learn to work.")</h2>
         </div>
-        <p>Cursos técnicos y formación complementaria que respaldan mi crecimiento como desarrollador.</p>
+        <p>@T("Cursos técnicos y formación complementaria que respaldan mi crecimiento como desarrollador.", "Technical courses and complementary training that support my growth as a developer.")</p>
     </header>
 
     <div class="learning-grid">
         <article class="course-card reveal">
             <span class="course-number" aria-hidden="true">01</span>
-            <p class="course-area">Desarrollo backend</p>
+            <p class="course-area">@T("Desarrollo backend", "Backend development")</p>
             <h3>Programando en C#: de principiante a profesional</h3>
             <div class="course-meta">
                 <span>Udemy</span>
-                <span>Completado</span>
+                <span>@T("Completado", "Completed")</span>
             </div>
         </article>
         <article class="course-card reveal">
             <span class="course-number" aria-hidden="true">02</span>
-            <p class="course-area">Formación complementaria</p>
+            <p class="course-area">@T("Formación complementaria", "Complementary training")</p>
             <h3>Inglés Intensivo 5</h3>
             <div class="course-meta">
                 <span>ITLA</span>
-                <span>Completado</span>
+                <span>@T("Completado", "Completed")</span>
             </div>
         </article>
         <article class="course-card reveal">
             <span class="course-number" aria-hidden="true">03</span>
-            <p class="course-area">Control de versiones</p>
+            <p class="course-area">@T("Control de versiones", "Version control")</p>
             <h3>Git</h3>
             <div class="course-meta">
                 <span>Código Facilito</span>
-                <span>Completado</span>
+                <span>@T("Completado", "Completed")</span>
             </div>
         </article>
         <article class="course-card reveal">
             <span class="course-number" aria-hidden="true">04</span>
-            <p class="course-area">Metodologías ágiles</p>
-            <h3>Fundamentos de Scrum</h3>
+            <p class="course-area">@T("Metodologías ágiles", "Agile methodologies")</p>
+            <h3>@T("Fundamentos de Scrum", "Scrum Fundamentals")</h3>
             <div class="course-meta">
-                <span>Formación</span>
-                <span>Completado</span>
+                <span>@T("Formación", "Training")</span>
+                <span>@T("Completado", "Completed")</span>
             </div>
         </article>
     </div>
@@ -238,26 +241,26 @@
 <section class="section about-section" id="sobre-mi">
     <div class="about-mark reveal" aria-hidden="true">A/D</div>
     <div class="about-copy reveal">
-        <p class="eyebrow">Sobre mí</p>
-        <h2>Aprendo construyendo soluciones reales.</h2>
-        <p>Soy estudiante de término de Ingeniería en Software en la Universidad Federico Henríquez y Carvajal. Me interesa seguir creciendo como desarrollador .NET, trabajar en equipo y convertir necesidades concretas en aplicaciones claras y útiles.</p>
+        <p class="eyebrow">@T("Sobre mí", "About me")</p>
+        <h2>@T("Aprendo construyendo soluciones reales.", "I learn by building real solutions.")</h2>
+        <p>@T("Soy estudiante de término de Ingeniería en Software en la Universidad Federico Henríquez y Carvajal. Me interesa seguir creciendo como desarrollador .NET, trabajar en equipo y convertir necesidades concretas en aplicaciones claras y útiles.", "I am a final-year Software Engineering student at Universidad Federico Henríquez y Carvajal. I want to continue growing as a .NET developer, collaborate with teams, and turn concrete needs into clear, useful applications.")</p>
         <div class="education-note">
-            <span>Educación</span>
-            <strong>Ingeniería en Software · UFHEC</strong>
-            <small>Estudiante de término</small>
+            <span>@T("Educación", "Education")</span>
+            <strong>@T("Ingeniería en Software", "Software Engineering") · UFHEC</strong>
+            <small>@T("Estudiante de término", "Final-year student")</small>
         </div>
     </div>
 </section>
 
 <section class="contact-section" id="contacto">
-    <p class="eyebrow reveal">Contacto</p>
+    <p class="eyebrow reveal">@T("Contacto", "Contact")</p>
     <div class="contact-grid reveal">
-        <h2>¿Construimos algo<br /><span>que funcione de verdad?</span></h2>
+        <h2>@T("¿Construimos algo", "Shall we build something")<br /><span>@T("que funcione de verdad?", "that truly works?")</span></h2>
         <div class="contact-links">
             <a href="mailto:alexanderadr1298@gmail.com">alexanderadr1298@gmail.com <span aria-hidden="true">↗</span></a>
             <a href="tel:+18092717150">(809) 271-7150 <span aria-hidden="true">↗</span></a>
             <a href="https://github.com/AlexanderDiazRz" target="_blank" rel="noreferrer">github.com/AlexanderDiazRz <span aria-hidden="true">↗</span></a>
-            <p>Santo Domingo, República Dominicana</p>
+            <p>@T("Santo Domingo, República Dominicana", "Santo Domingo, Dominican Republic")</p>
         </div>
     </div>
 </section>
