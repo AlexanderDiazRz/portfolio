@@ -1,0 +1,262 @@
+@model PortfolioViewModel
+@{
+    ViewData["Title"] = "Desarrollador .NET";
+}
+
+<section class="hero" id="inicio">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-kicker reveal">
+        <span class="signal-dot"></span>
+        Santo Domingo, República Dominicana
+    </div>
+    <div class="hero-copy reveal">
+        <p class="hero-index">BIENVENIDO A MI MUNDO</p>
+        <h1>
+            Desarrollo software<br />
+            <span>con intención.</span>
+        </h1>
+        <p class="hero-lead">
+            Soy <strong>Alexander Díaz Ramírez</strong>, desarrollador de software junior y estudiante de término de Ingeniería en Software. Construyo aplicaciones con C#, .NET y SQL Server.
+        </p>
+        <div class="hero-actions">
+            <a class="button button-primary" href="#proyectos">Explorar proyectos <span aria-hidden="true">↘</span></a>
+            <a class="button button-quiet" href="mailto:alexanderadr1298@gmail.com">Hablemos</a>
+        </div>
+    </div>
+    <div class="hero-stamp reveal" aria-label="Monograma de Alexander Díaz">
+        <span>AD</span>
+        <small>SOFTWARE<br />DEVELOPER</small>
+    </div>
+    <div class="hero-foot reveal">
+        <span>Disponible para oportunidades junior .NET</span>
+        <span class="hero-scroll">Desliza para conocer mi trabajo ↓</span>
+    </div>
+</section>
+
+<section class="now-strip reveal" aria-label="Trabajo actual">
+    <div class="section-number">00</div>
+    <div>
+        <p class="eyebrow">Actualmente</p>
+        <h2>Construyendo GoGo Delivery RD</h2>
+    </div>
+    <p>Trabajo junto a un equipo en una aplicación Flutter para comercios del ecosistema de pedidos de GOGO DELIVERY RD, bajo contrato por proyecto y de forma remota.</p>
+    <span class="status-pill"><span></span> En desarrollo</span>
+</section>
+
+<section class="section projects-section" id="proyectos">
+    <header class="section-heading reveal">
+        <div>
+            <p class="eyebrow">Trabajo seleccionado</p>
+            <h2>Proyectos que cuentan mi proceso.</h2>
+        </div>
+        <p>No son tarjetas de relleno: cada proyecto muestra una etapa distinta de mi crecimiento como desarrollador.</p>
+    </header>
+
+    <div class="project-list">
+        @foreach (var project in Model.Projects)
+        {
+            <article class="project reveal">
+                <div class="project-number">@project.Number</div>
+                <div class="project-main">
+                    <p class="eyebrow">@project.Eyebrow</p>
+                    <h3>@project.Title</h3>
+                    <p class="project-description">@project.Description</p>
+                    @if (project.Technologies.Count > 0)
+                    {
+                        <ul class="tag-list" aria-label="Tecnologías utilizadas">
+                            @foreach (var technology in project.Technologies)
+                            {
+                                <li>@technology</li>
+                            }
+                        </ul>
+                    }
+                    @if (project.ImageUrl is not null)
+                    {
+                        <figure class="project-preview project-preview--@project.ImageVariant">
+                            <div class="device-shell device-shell--@project.ImageVariant">
+                                <img src="@project.ImageUrl" alt="@project.ImageAlt" loading="lazy" />
+                            </div>
+                            <figcaption>
+                                <span>@(project.ImageHeading ?? "Vista del producto")</span>
+                                @project.ImageCaption
+                            </figcaption>
+                        </figure>
+                    }
+                </div>
+                <div class="project-meta">
+                    <span class="project-status">@project.Status</span>
+                    @if (project.Url is not null)
+                    {
+                        <a href="@project.Url" target="_blank" rel="noreferrer">@project.LinkLabel <span aria-hidden="true">↗</span></a>
+                    }
+                    else
+                    {
+                        <span class="project-link-muted">@project.LinkLabel</span>
+                    }
+                </div>
+            </article>
+        }
+    </div>
+</section>
+
+<section class="section split-section" id="experiencia">
+    <header class="section-heading reveal">
+        <div>
+            <p class="eyebrow">Trayectoria</p>
+            <h2>Experiencia construida haciendo.</h2>
+        </div>
+    </header>
+
+    <div class="timeline">
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Actual</div>
+            <div>
+                <p class="eyebrow">Remoto · Contrato por proyecto</p>
+                <h3>Desarrollador Junior · GoGo Delivery RD</h3>
+                <p>Desarrollo en equipo de una aplicación Flutter para comercios, con integración a la API central y flujos móviles de acceso y verificación.</p>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">6–12 meses</div>
+            <div>
+                <p class="eyebrow">Remoto · Independiente</p>
+                <h3>Desarrollador Freelance</h3>
+                <p>Sistemas web a la medida con ASP.NET Core MVC, arquitectura por capas, CRUD y bases de datos SQL Server. Participación desde el levantamiento de requerimientos hasta la entrega.</p>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">UFHEC</div>
+            <div>
+                <p class="eyebrow">Pasantía</p>
+                <h3>Biblioteca Universitaria</h3>
+                <p>Gestión documental, clasificación de recursos y atención al usuario.</p>
+            </div>
+        </article>
+        <article class="timeline-item reveal">
+            <div class="timeline-date">Eventos</div>
+            <div>
+                <p class="eyebrow">Colaboración</p>
+                <h3>Animación y logística</h3>
+                <p>Apoyo en la organización y desarrollo de eventos sociales.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section skills-section" id="habilidades">
+    <header class="section-heading reveal">
+        <div>
+            <p class="eyebrow">Herramientas</p>
+            <h2>Mi stack, sin exageraciones.</h2>
+        </div>
+        <p>Backend .NET como base, acompañado por desarrollo móvil, bases de datos e integración de IA local.</p>
+    </header>
+
+    <div class="skills-map">
+        <article class="skill-block skill-core reveal">
+            <span class="skill-code">CORE / 01</span>
+            <h3>Backend</h3>
+            <p>C#, ASP.NET Core MVC, diseño y consumo de APIs, Windows Forms</p>
+        </article>
+        <article class="skill-block reveal">
+            <span class="skill-code">DATA / 02</span>
+            <h3>Datos</h3>
+            <p>SQL Server, Entity Framework, Code First y migraciones</p>
+        </article>
+        <article class="skill-block reveal">
+            <span class="skill-code">MOBILE / 03</span>
+            <h3>Móvil</h3>
+            <p>.NET MAUI, MVVM y Shell navigation · Flutter básico aplicado en un proyecto de equipo</p>
+        </article>
+        <article class="skill-block reveal">
+            <span class="skill-code">AI / 04</span>
+            <h3>IA aplicada</h3>
+            <p>Integración de LLMs con Ollama y prompt engineering</p>
+        </article>
+        <article class="skill-block reveal">
+            <span class="skill-code">WEB / 05</span>
+            <h3>Frontend</h3>
+            <p>HTML, CSS y JavaScript · nociones prácticas</p>
+        </article>
+        <article class="skill-block reveal">
+            <span class="skill-code">OPS / 06</span>
+            <h3>Herramientas</h3>
+            <p>Git, GitHub, Bash, pruebas con xUnit y Docker básico</p>
+        </article>
+    </div>
+</section>
+
+<section class="section learning-section" id="formacion">
+    <header class="section-heading reveal">
+        <div>
+            <p class="eyebrow">Formación continua</p>
+            <h2>Lo que aprendo, lo pongo a trabajar.</h2>
+        </div>
+        <p>Cursos técnicos y formación complementaria que respaldan mi crecimiento como desarrollador.</p>
+    </header>
+
+    <div class="learning-grid">
+        <article class="course-card reveal">
+            <span class="course-number" aria-hidden="true">01</span>
+            <p class="course-area">Desarrollo backend</p>
+            <h3>Programando en C#: de principiante a profesional</h3>
+            <div class="course-meta">
+                <span>Udemy</span>
+                <span>Completado</span>
+            </div>
+        </article>
+        <article class="course-card reveal">
+            <span class="course-number" aria-hidden="true">02</span>
+            <p class="course-area">Formación complementaria</p>
+            <h3>Inglés Intensivo 5</h3>
+            <div class="course-meta">
+                <span>ITLA</span>
+                <span>Completado</span>
+            </div>
+        </article>
+        <article class="course-card reveal">
+            <span class="course-number" aria-hidden="true">03</span>
+            <p class="course-area">Control de versiones</p>
+            <h3>Git</h3>
+            <div class="course-meta">
+                <span>Código Facilito</span>
+                <span>Completado</span>
+            </div>
+        </article>
+        <article class="course-card reveal">
+            <span class="course-number" aria-hidden="true">04</span>
+            <p class="course-area">Metodologías ágiles</p>
+            <h3>Fundamentos de Scrum</h3>
+            <div class="course-meta">
+                <span>Formación</span>
+                <span>Completado</span>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section about-section" id="sobre-mi">
+    <div class="about-mark reveal" aria-hidden="true">A/D</div>
+    <div class="about-copy reveal">
+        <p class="eyebrow">Sobre mí</p>
+        <h2>Aprendo construyendo soluciones reales.</h2>
+        <p>Soy estudiante de término de Ingeniería en Software en la Universidad Federico Henríquez y Carvajal. Me interesa seguir creciendo como desarrollador .NET, trabajar en equipo y convertir necesidades concretas en aplicaciones claras y útiles.</p>
+        <div class="education-note">
+            <span>Educación</span>
+            <strong>Ingeniería en Software · UFHEC</strong>
+            <small>Estudiante de término</small>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contacto">
+    <p class="eyebrow reveal">Contacto</p>
+    <div class="contact-grid reveal">
+        <h2>¿Construimos algo<br /><span>que funcione de verdad?</span></h2>
+        <div class="contact-links">
+            <a href="mailto:alexanderadr1298@gmail.com">alexanderadr1298@gmail.com <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/AlexanderDiazRz" target="_blank" rel="noreferrer">github.com/AlexanderDiazRz <span aria-hidden="true">↗</span></a>
+            <p>Santo Domingo, República Dominicana</p>
+        </div>
+    </div>
+</section>

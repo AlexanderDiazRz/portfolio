@@ -1,0 +1,94 @@
+@{
+    var socialImageUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{Url.Content("~/images/social/portfolio-social.png")}";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portafolio de Alexander Díaz Ramírez, desarrollador de software junior en Santo Domingo. Proyectos con C#, ASP.NET Core MVC, .NET MAUI y SQL Server." />
+    <meta name="author" content="Alexander Díaz Ramírez" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#101112" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_DO" />
+    <meta property="og:site_name" content="Alexander Díaz Ramírez" />
+    <meta property="og:title" content="Alexander Díaz Ramírez · Desarrollador .NET" />
+    <meta property="og:description" content="Proyectos reales de desarrollo web, móvil e integración de IA con C# y .NET." />
+    <meta property="og:image" content="@socialImageUrl" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alexander Díaz Ramírez, desarrollador de software junior" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alexander Díaz Ramírez · Desarrollador .NET" />
+    <meta name="twitter:description" content="Portafolio profesional de desarrollo web, móvil e integración de IA." />
+    <meta name="twitter:image" content="@socialImageUrl" />
+
+    <title>@ViewData["Title"] · Alexander Díaz Ramírez</title>
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "Person",
+            "name": "Alexander Díaz Ramírez",
+            "jobTitle": "Desarrollador de software junior",
+            "email": "mailto:alexanderadr1298@gmail.com",
+            "address": {
+                "@@type": "PostalAddress",
+                "addressLocality": "Santo Domingo",
+                "addressCountry": "DO"
+            },
+            "sameAs": [
+                "https://github.com/AlexanderDiazRz"
+            ],
+            "knowsAbout": [
+                "C#",
+                "ASP.NET Core MVC",
+                ".NET MAUI",
+                "SQL Server",
+                "Integración de LLMs con Ollama"
+            ]
+        }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" data-header>
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+            <span class="brand-mark" aria-hidden="true">AD</span>
+            <span class="brand-name">Alexander Díaz</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
+            <span></span><span></span>
+            <span class="sr-only">Abrir menú</span>
+        </button>
+
+        <nav class="site-nav" id="main-navigation" aria-label="Navegación principal" data-nav>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#formacion">Formación</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main id="contenido">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>Diseñado y desarrollado con ASP.NET Core.</p>
+        <p>© <span data-year></span> Alexander Díaz Ramírez</p>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

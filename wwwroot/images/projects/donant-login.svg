@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img" aria-labelledby="title desc">
+  <title id="title">Pantalla inicial de DonanT</title>
+  <desc id="desc">Recreación segura del inicio de sesión de la aplicación móvil DonanT.</desc>
+
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffafb"/>
+      <stop offset="1" stop-color="#f3eef0"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e11d48"/>
+      <stop offset="1" stop-color="#b80f35"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#721026" flood-opacity=".17"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#37121b" flood-opacity=".08"/>
+    </filter>
+  </defs>
+
+  <rect width="720" height="1280" rx="42" fill="url(#page)"/>
+
+  <path d="M0 0h720v366c0 34-27 61-61 61H61c-34 0-61-27-61-61V0Z" fill="url(#hero)" filter="url(#shadow)"/>
+  <circle cx="360" cy="146" r="67" fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".25" stroke-width="3"/>
+  <path d="M360 89c-4 16-40 58-40 85a40 40 0 0 0 80 0c0-27-36-69-40-85Z" fill="#fff"/>
+  <path d="M342 181c4 11 13 17 25 17" fill="none" stroke="#dc143c" stroke-linecap="round" stroke-width="6"/>
+  <text x="360" y="261" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="700" text-anchor="middle">DonanT</text>
+  <text x="360" y="304" fill="#fff" fill-opacity=".84" font-family="Arial, sans-serif" font-size="22" text-anchor="middle">Tu gota puede salvar una vida</text>
+
+  <g transform="translate(70 494)">
+    <text x="0" y="0" fill="#1f2937" font-family="Arial, sans-serif" font-size="34" font-weight="700">Iniciar sesión</text>
+    <text x="0" y="42" fill="#6b7280" font-family="Arial, sans-serif" font-size="21">Bienvenido de nuevo, donante.</text>
+
+    <text x="0" y="112" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">USUARIO</text>
+    <rect x="0" y="132" width="580" height="82" rx="18" fill="#fff" stroke="#e5e7eb" stroke-width="2" filter="url(#soft)"/>
+    <circle cx="42" cy="173" r="13" fill="none" stroke="#9ca3af" stroke-width="3"/>
+    <path d="M21 198c4-14 12-21 21-21s17 7 21 21" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-width="3"/>
+    <text x="78" y="181" fill="#9ca3af" font-family="Arial, sans-serif" font-size="21">tu.usuario</text>
+
+    <text x="0" y="267" fill="#9ca3af" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">CONTRASEÑA</text>
+    <rect x="0" y="287" width="580" height="82" rx="18" fill="#fff" stroke="#e5e7eb" stroke-width="2" filter="url(#soft)"/>
+    <rect x="28" y="321" width="28" height="23" rx="5" fill="none" stroke="#9ca3af" stroke-width="3"/>
+    <path d="M34 321v-8a8 8 0 0 1 16 0v8" fill="none" stroke="#9ca3af" stroke-width="3"/>
+    <circle cx="88" cy="328" r="5" fill="#9ca3af"/>
+    <circle cx="108" cy="328" r="5" fill="#9ca3af"/>
+    <circle cx="128" cy="328" r="5" fill="#9ca3af"/>
+    <circle cx="148" cy="328" r="5" fill="#9ca3af"/>
+    <path d="M518 328c14-14 31-14 45 0-14 14-31 14-45 0Z" fill="none" stroke="#9ca3af" stroke-width="3"/>
+    <circle cx="540" cy="328" r="6" fill="#9ca3af"/>
+
+    <rect x="1" y="407" width="27" height="27" rx="7" fill="#fff" stroke="#dc143c" stroke-width="3"/>
+    <text x="42" y="429" fill="#4b5563" font-family="Arial, sans-serif" font-size="19">Recuérdame</text>
+    <text x="580" y="429" fill="#dc143c" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="end">¿Olvidaste tu contraseña?</text>
+
+    <rect x="0" y="477" width="580" height="84" rx="18" fill="#dc143c" filter="url(#shadow)"/>
+    <path d="M213 518h26m-8-9 9 9-9 9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    <text x="310" y="526" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Iniciar sesión</text>
+  </g>
+
+  <g transform="translate(70 1133)">
+    <line x1="0" y1="0" x2="580" y2="0" stroke="#e2d7da" stroke-width="2"/>
+    <text x="290" y="52" fill="#8b6670" font-family="Arial, sans-serif" font-size="17" letter-spacing="1.5" text-anchor="middle">DESARROLLADO EN CONJUNTO · EQUIPO DE 2</text>
+  </g>
+</svg>
