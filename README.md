@@ -52,5 +52,6 @@ Luego abre <http://localhost:8080>.
 
 - GitHub: [AlexanderDiazRz](https://github.com/AlexanderDiazRz)
 - Correo: [alexanderadr1298@gmail.com](mailto:alexanderadr1298@gmail.com)
+- Teléfono: [(809) 271-7150](tel:+18092717150)
 - Ubicación: Santo Domingo, República Dominicana
 
